@@ -1,8 +1,11 @@
 import "./App.css";
-import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
-import PostCard from "./components/PostCard";
+// components
+import Login from "./components/Login.jsx";
+import Register from "./components/Register";
+import HomePosts from "./components/HomePosts.jsx";
+
 import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [posts, setPosts] = useState(null);
@@ -17,13 +20,13 @@ function App() {
   }, []);
   return (
     <div className=" h-full  bg-slate-100 ">
-      <Navbar />
-      <div className="flex flex-col justify-center items-center">
-        <button onClick={() => console.log(posts)}>see posts</button>
-        <PostCard />
-      </div>
-
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<HomePosts />} />
+          <Route path="/login" exact element={<Login />} />
+          <Route path="/register" exact element={<Register />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
