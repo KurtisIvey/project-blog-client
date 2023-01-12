@@ -3,28 +3,23 @@ import "./App.css";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register";
 import HomePosts from "./components/HomePosts.jsx";
+import SinglePost from "./components/SinglePosts.jsx";
 
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 
 function App() {
-  const [posts, setPosts] = useState(null);
-  async function fetchPost() {
-    const response = await fetch("http://localhost:3001/posts/");
-    const postsRes = await response.json();
-    setPosts(postsRes.posts);
-  }
-
-  useEffect(() => {
-    fetchPost();
-  }, []);
+  let { id } = useParams();
   return (
     <div className=" h-full  bg-slate-100 ">
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<HomePosts />} />
+          <Route path="/posts" exact element={<HomePosts />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="/register" exact element={<Register />} />
+
+          {/*routes for individual posts */}
+          <Route path="/posts/:id" element={<SinglePost id />} />
         </Routes>
       </BrowserRouter>
     </div>
