@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "./small_components/Footer.jsx";
 import Navbar from "./small_components/Navbar.jsx";
 import Input from "./small_components/Input.jsx";
 
 const Register = () => {
+  useEffect(() => {
+    document.title = "Blog | Register";
+  }, []);
   return (
     <div className=" h-screen  bg-slate-100 overflow-hidden">
       <Navbar />

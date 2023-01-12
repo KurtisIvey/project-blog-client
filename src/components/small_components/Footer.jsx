@@ -9,7 +9,7 @@ const Footer = () => {
           I.V.Coding™
         </a>
       </span>
-      <ul className="flex flex-wrap items-center text-xs mt-2 text-gray-500 dark:text-gray-400 md:mt-0">
+      <ul className="flex flex-wrap items-center text-xs  text-gray-500 dark:text-gray-400 mt-2 mb-3 md:mt-0">
         <li>
           <a href="#" className="mr-4 hover:underline md:mr-6">
             Github
