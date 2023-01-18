@@ -1,20 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PostCard = ({ id, title, textContent }) => {
+  const textContentTrimmed = textContent.substring(0, 55) + "...";
   return (
-    <div className="max-w-xl p-6 m-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <h5 className="mb-2 text-2xl  tracking-tight text-gray-900 dark:text-white">
-          Noteworthy technology acquisitions 2021
+    <div className="max-w-xl mx-auto p-6 m-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <Link to={`/posts/${id}`}>
+        <h5 className="mb-2 text-base md:text-xl  tracking-tight text-gray-900 dark:text-white">
+          {title}
         </h5>
-      </a>
-      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-        Here are the biggest enterprise technology acquisitions of 2021 so far,
-        in reverse chronological order.
+      </Link>
+      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-xs md:text-sm">
+        {textContentTrimmed}
       </p>
-      <a
-        href="#"
-        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      <Link
+        to={`/posts/${id}`}
+        className="inline-flex items-center px-3 py-2 text-xs md:text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Read more
         <svg
@@ -30,7 +31,7 @@ const PostCard = ({ id, title, textContent }) => {
             clipRule="evenodd"
           ></path>
         </svg>
-      </a>
+      </Link>
     </div>
   );
 };
