@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import dateTimeFullConvert from "../../utilities/dateTimeConvert";
 
 const Comments = () => {
   const [comments, setComments] = useState(null);
@@ -28,7 +29,9 @@ const Comments = () => {
           >
             <div className="flex items-center justify-between">
               <div className="text-base">{comment.author.username}</div>
-              <div className="text-xs md:mr-2">timestamp</div>
+              <div className="text-xs md:mr-2">
+                {dateTimeFullConvert(comment.timestamp)}
+              </div>
             </div>
             <p className="text-xs mt-3">{comment.comment}</p>
           </div>
@@ -38,19 +41,3 @@ const Comments = () => {
 };
 
 export default Comments;
-
-/*
-
-{comments &&
-        comments.map((comment) => (
-          <div className="flex flex-col">
-            <div className="flex items-center justify-between">
-              <div className="text-base">{comment.author.username}</div>
-              <div className="text-xs md:mr-2">timestamp</div>
-            </div>
-            <p className="text-xs mt-3">{comment.comment}</p>
-          </div>
-        ))}
-
-
-*/

@@ -32,7 +32,6 @@ const Navbar = () => {
           <Link className="hover:underline" to="/">
             Project Blog
           </Link>
-          <button onClick={() => console.log(document.cookie)}>fsdfs</button>
         </h2>
         <ul className=" flex mt-2 md:mt-0 ">
           {user ? (

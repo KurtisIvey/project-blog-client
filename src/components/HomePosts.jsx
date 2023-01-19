@@ -16,7 +16,7 @@ const HomePosts = () => {
 
     const postsRes = await response.json();
     setPosts(postsRes.posts);
-    console.log(posts);
+    //console.log(posts);
   }
 
   useEffect(() => {

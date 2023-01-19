@@ -4,7 +4,7 @@ import CommentForm from "./small_components/CommentForm";
 import Comments from "./small_components/Comments";
 import Footer from "./small_components/Footer";
 import Navbar from "./small_components/Navbar";
-const { DateTime } = require("luxon");
+import dateTimeFullConvert from "../utilities/dateTimeConvert";
 
 const SinglePosts = () => {
   let { id } = useParams();
@@ -25,13 +25,6 @@ const SinglePosts = () => {
     fetchPost();
   }, []);
 
-  function dateTimeConvert(date) {
-    const year = date.substring(0, 4);
-    const month = date.substring(5, 7);
-    const day = date.substring(8, 10);
-    return `${day}.${month}.${year}`;
-  }
-
   return (
     <main className=" h-screen overflow-scroll">
       <Navbar />
@@ -41,7 +34,7 @@ const SinglePosts = () => {
           <div className=" mt-1 flex text-center items-end">
             <div className="text-base">By {post && post.author.username}</div>
             <div className="ml-10 text-sm  text-gray-500">
-              {post && dateTimeConvert(post.timestamp)}
+              {post && dateTimeFullConvert(post.timestamp)}
             </div>
           </div>
           <p className=" mt-10  mb-3 font-light text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:mr-3 first-letter:float-left">
