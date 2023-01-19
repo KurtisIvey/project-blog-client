@@ -20,16 +20,12 @@ const Comments = () => {
 
   return (
     <div>
-      <h1
-        onClick={() => {
-          console.log(comments);
-        }}
-      >
-        comment section
-      </h1>
       {comments &&
         comments.map((comment) => (
-          <div key={comment._id} className="flex flex-col">
+          <div
+            key={comment._id}
+            className="flex flex-col mb-5 shadow-md bg-white rounded"
+          >
             <div className="flex items-center justify-between">
               <div className="text-base">{comment.author.username}</div>
               <div className="text-xs md:mr-2">timestamp</div>

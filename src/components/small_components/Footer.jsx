@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="container flex-col flex flex-wrap items-center  mx-auto md:flex-row md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 fixed inset-x-0 bottom-0">
+    <footer className="sticky top-[100vh] container flex-col flex flex-wrap items-center  mx-auto md:flex-row md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 fixed inset-x-0 bottom-0">
       <span className="text-xs text-gray-500  dark:text-gray-400">
         © 2023{" "}
         <a href="https://flowbite.com/" className="hover:underline">
