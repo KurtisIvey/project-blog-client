@@ -12,7 +12,7 @@ const CommentForm = () => {
     event.preventDefault();
 
     const response = await fetch(
-      `http://localhost:3001/api/posts/${id}/comments`,
+      `https://project-blog-api.herokuapp.com/api/posts/${id}/comments`,
       {
         method: "POST",
         credentials: "include",

@@ -19,7 +19,9 @@ const SinglePosts = () => {
   }, [post]);
 
   async function fetchPost() {
-    const response = await fetch(`http://localhost:3001/api/posts/${id}`);
+    const response = await fetch(
+      `https://project-blog-api.herokuapp.com/api/posts/${id}`
+    );
     const postRes = await response.json();
     console.log(postRes);
     setPost(postRes.post);

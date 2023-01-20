@@ -12,7 +12,9 @@ const HomePosts = () => {
   }, []);
 
   async function fetchPosts() {
-    const response = await fetch("http://localhost:3001/api/posts");
+    const response = await fetch(
+      "https://project-blog-api.herokuapp.com/api/posts"
+    );
 
     const postsRes = await response.json();
     setPosts(postsRes.posts);

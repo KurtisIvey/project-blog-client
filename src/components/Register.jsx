@@ -20,19 +20,22 @@ const Register = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/api/register", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const response = await fetch(
+        "https://project-blog-api.herokuapp.com/api/register",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-        }),
-      });
+          body: JSON.stringify({
+            username,
+            email,
+            password,
+          }),
+        }
+      );
       //
       const data = await response.json();
       console.log(data);

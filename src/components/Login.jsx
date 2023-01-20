@@ -18,18 +18,21 @@ const Login = () => {
   async function loginUser(event) {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:3001/api/login", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const response = await fetch(
+      "https://project-blog-api.herokuapp.com/api/login",
+      {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
 
     const data = await response.json();
     console.log(data.errors);

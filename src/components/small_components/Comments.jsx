@@ -8,7 +8,7 @@ const Comments = () => {
 
   async function fetchComments() {
     const response = await fetch(
-      `http://localhost:3001/api/posts/${id}/comments`
+      `https://project-blog-api.herokuapp.com/api/posts/${id}/comments`
     );
     const commentRes = await response.json();
     setComments(commentRes.comments);
