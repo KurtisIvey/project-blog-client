@@ -2,9 +2,10 @@ export default function dateTimeFullConvert(date) {
   const year = date.substring(0, 4);
   const month = date.substring(5, 7);
   const day = date.substring(8, 10);
-  const time = date.substring(11, 13) + date.substring(14, 16);
-  const convertedTime = militaryTimeToStandard(time);
-  return `${day}.${month}.${year} ${convertedTime}`;
+  //const time = date.substring(11, 13) + date.substring(14, 16);
+  //const convertedTime = militaryTimeToStandard(time);
+  //console.log(date);
+  return `${day}.${month}.${year}`;
 }
 
 function militaryTimeToStandard(fourDigitTime) {

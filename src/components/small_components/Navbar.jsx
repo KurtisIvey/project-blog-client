@@ -22,13 +22,14 @@ const Navbar = () => {
   function logoutUser() {
     localStorage.removeItem("token");
     setUser(null);
-    navigate("/");
+    alert("Logout successful");
+    navigate(0);
   }
 
   return (
     <nav className="bg-white px-2 sm:px-4 py-3.5 tracking-tight dark:bg-gray-900 text-gray-500 ">
       <div className="container flex flex-col md:flex-row md:flex-wrap items-center md:pr-6 md:pl-6 justify-between mx-auto">
-        <h2 className=" text-slate-800 text-3xl text-base md:text-2xl">
+        <h2 className=" text-slate-800 text-lg md:text-3xl sm:text-2xl">
           <Link className="hover:underline" to="/">
             Project Blog
           </Link>

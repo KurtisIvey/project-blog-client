@@ -1,6 +1,14 @@
 import React from "react";
 
-const Input = ({ name, label, type, placeholder, onChange, value }) => {
+const Input = ({
+  name,
+  label,
+  type,
+  placeholder,
+  onChange,
+  value,
+  minlength,
+}) => {
   return (
     <div className="mb-6">
       <label
@@ -18,6 +26,7 @@ const Input = ({ name, label, type, placeholder, onChange, value }) => {
         required
         onChange={(e) => onChange(e.target.value)}
         value={value}
+        minLength={minlength ? 6 : 0}
       />
     </div>
   );

@@ -9,6 +9,7 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   useEffect(() => {
     document.title = "Blog | Login";
@@ -31,15 +32,20 @@ const Login = () => {
     });
 
     const data = await response.json();
-    console.log(data);
+    console.log(data.errors);
+    console.log(response.status);
     if (data.user) {
       localStorage.setItem("token", data.token);
       alert("Login successful");
       navigate("/");
     } else {
-      alert("Please check your username and password");
-      setEmail("");
-      setPassword("");
+      setErrMessage(data.errors);
+      if (data.errors.password) {
+        setPassword("");
+      } else if (data.errors.email) {
+        setPassword("");
+        setEmail("");
+      }
     }
   }
   return (
@@ -47,6 +53,8 @@ const Login = () => {
       <Navbar />
       <form className="flex h-full " onSubmit={(e) => loginUser(e)}>
         <div className=" flex flex-col m-auto pb-28 md:">
+          <span className="text-xs mb-2 text-red-500">{errMessage.email}</span>
+
           <Input
             name="email"
             label="Email"
@@ -55,12 +63,17 @@ const Login = () => {
             onChange={setEmail}
             value={email}
           />
+          <span className="text-xs mb-2 text-red-500">
+            {errMessage.password}
+          </span>
+
           <Input
             name="password"
             label="Your password"
             type="password"
             onChange={setPassword}
             value={password}
+            minlength={6}
           />
           <button
             type="submit"
