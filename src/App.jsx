@@ -5,13 +5,19 @@ import Register from "./components/Register";
 import HomePosts from "./components/HomePosts.jsx";
 import SinglePost from "./components/SinglePosts.jsx";
 
-import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Route,
+  Routes,
+  useParams,
+} from "react-router-dom";
 
 function App() {
   let { id } = useParams();
   return (
     <div className=" h-full  bg-slate-100 ">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" exact element={<HomePosts />} />
           <Route path="/login" exact element={<Login />} />
@@ -20,7 +26,7 @@ function App() {
           {/*routes for individual posts */}
           <Route path="/posts/:id" element={<SinglePost id />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
