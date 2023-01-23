@@ -24,7 +24,7 @@ const Register = () => {
         "https://project-blog-api.herokuapp.com/api/register",
         {
           method: "POST",
-          credentials: "include",
+
           headers: {
             "Content-Type": "application/json",
           },
@@ -38,28 +38,14 @@ const Register = () => {
       );
       //
       const data = await response.json();
-      console.log(data);
-      console.log(response.status);
       if (response.status !== 201) {
         setErrMessage(data.errors);
       } else {
         navigate("/");
       }
-      //
     } catch (err) {
       console.log(err);
     }
-
-    /*
-    if (data.user) {
-      localStorage.setItem("token", data.token);
-      alert("Login successful");
-      navigate("/");
-    } else {
-      alert("Please check your username and password");
-      setEmail("");
-      setPassword("");
-    } */
   }
 
   return (

@@ -23,7 +23,6 @@ const SinglePosts = () => {
       `https://project-blog-api.herokuapp.com/api/posts/${id}`
     );
     const postRes = await response.json();
-    console.log(postRes);
     setPost(postRes.post);
   }
 
