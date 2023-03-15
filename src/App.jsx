@@ -6,7 +6,6 @@ import HomePosts from "./components/HomePosts.jsx";
 import SinglePost from "./components/SinglePosts.jsx";
 
 import {
-  BrowserRouter,
   HashRouter,
   Route,
   Routes,
@@ -14,7 +13,6 @@ import {
 } from "react-router-dom";
 
 function App() {
-  let { id } = useParams();
   return (
     <div className=" h-full  bg-slate-100 ">
       <HashRouter>
