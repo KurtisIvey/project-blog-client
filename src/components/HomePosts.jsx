@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Footer from "./small_components/Footer";
 import Navbar from "./small_components/Navbar";
 import PostCard from "./small_components/PostCard";
